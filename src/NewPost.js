@@ -1,12 +1,9 @@
-const NewPost = ()=>{
 
-    const onNewPost = ()=>{
-        alert('s');
-    }
 
+const NewPost = (props)=>{
     return <div>
-        <input placeholder={'متن پست شما'}/>
-        <button onClick={onNewPost}>اضافه کردن پست</button>
+        <p>{props.title}</p>
+        <p>{props.desc}</p>
     </div>
 }
 

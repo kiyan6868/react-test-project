@@ -1,8 +1,8 @@
-import NewPost from './NewPost'
+import PostBox from './PostBox'
 
 const Main = ()=>{
     return <div className={'main'}>
-        <NewPost/>
+        <PostBox/>
     </div>
 }
 
