@@ -1,4 +1,5 @@
 import NewPost from './NewPost'
+import {useState} from 'react'
 
 
 const Post = [
@@ -14,15 +15,29 @@ const Post = [
 
 const PostBox = ()=>{
 
+    const [newPostText,setNewPostText] = useState('')
+    const [Task,setTask] = useState(Post)
+    
+    const onChangeInput = (e)=>{
+        setNewPostText(e.target.value);
+    }
+
     const onNewPost = ()=>{
-        alert('s');
+        if(!newPostText){
+            return
+        }else{
+            setTask(currentTask=>{
+                return [...currentTask,{'title' : newPostText, 'desc': 'x'}]
+            })
+            setNewPostText('')
+        }
     }
 
     return <div>
-        <input placeholder={'متن پست شما'}/>
+        <input placeholder={'متن پست شما'} onChange={onChangeInput} value={newPostText}/>
         <button onClick={onNewPost}>اضافه کردن پست</button>
         {
-            Post.map(post=>{
+            Task.map(post=>{
                 return <NewPost title={post.title} desc={post.desc}/>
             })
         }
